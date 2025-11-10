@@ -1,0 +1,339 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #0078d4;
+    --primary-hover: #106ebe;
+    --success-color: #107c10;
+    --error-color: #d13438;
+    --warning-color: #ffaa44;
+    --bg-color: #f3f2f1;
+    --card-bg: #ffffff;
+    --text-color: #323130;
+    --text-secondary: #605e5c;
+    --border-color: #d2d0ce;
+    --shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+}
+
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 30px;
+    padding: 20px 0;
+}
+
+header h1 {
+    font-size: 2rem;
+    margin-bottom: 8px;
+    color: var(--primary-color);
+}
+
+.subtitle {
+    color: var(--text-secondary);
+    font-size: 1rem;
+}
+
+.section {
+    background: var(--card-bg);
+    border-radius: 8px;
+    padding: 24px;
+    margin-bottom: 20px;
+    box-shadow: var(--shadow);
+}
+
+.section h2 {
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+    color: var(--text-color);
+}
+
+.form-group {
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: var(--text-color);
+}
+
+.form-control {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    font-size: 1rem;
+    font-family: inherit;
+    transition: border-color 0.2s;
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: var(--primary-color);
+}
+
+select.form-control {
+    width: calc(100% - 50px);
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23605e5c' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    padding-right: 40px;
+}
+
+.btn {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-family: inherit;
+}
+
+.btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.btn-primary:hover:not(:disabled) {
+    background-color: var(--primary-hover);
+}
+
+.btn-secondary {
+    background-color: var(--text-secondary);
+    color: white;
+}
+
+.btn-secondary:hover:not(:disabled) {
+    background-color: var(--text-color);
+}
+
+.btn-large {
+    width: 100%;
+    padding: 16px 24px;
+    font-size: 1.1rem;
+}
+
+.btn-icon {
+    position: absolute;
+    right: 0;
+    top: 32px;
+    padding: 8px 12px;
+    background-color: var(--bg-color);
+    border: 1px solid var(--border-color);
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 1.2rem;
+}
+
+.btn-icon:hover {
+    background-color: var(--border-color);
+}
+
+.hidden {
+    display: none !important;
+}
+
+#user-info {
+    text-align: center;
+    padding: 20px;
+    background-color: var(--bg-color);
+    border-radius: 4px;
+    margin-top: 16px;
+}
+
+#user-info p {
+    margin-bottom: 12px;
+    font-weight: 600;
+}
+
+.photo-preview {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    gap: 12px;
+    margin-top: 16px;
+}
+
+.photo-preview-item {
+    position: relative;
+    aspect-ratio: 1;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 2px solid var(--border-color);
+}
+
+.photo-preview-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.photo-preview-item .remove-btn {
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    background-color: var(--error-color);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    font-size: 16px;
+    line-height: 1;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.progress-section {
+    margin-top: 24px;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 30px;
+    background-color: var(--bg-color);
+    border-radius: 15px;
+    overflow: hidden;
+    margin-bottom: 12px;
+}
+
+.progress-fill {
+    height: 100%;
+    background-color: var(--success-color);
+    transition: width 0.3s ease;
+    width: 0%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 600;
+}
+
+#progress-text {
+    text-align: center;
+    color: var(--text-secondary);
+}
+
+.status-message {
+    margin-top: 20px;
+    padding: 16px;
+    border-radius: 4px;
+    text-align: center;
+    font-weight: 600;
+}
+
+.status-message.success {
+    background-color: #dff6dd;
+    color: var(--success-color);
+    border: 1px solid var(--success-color);
+}
+
+.status-message.error {
+    background-color: #fde7e9;
+    color: var(--error-color);
+    border: 1px solid var(--error-color);
+}
+
+.status-message.warning {
+    background-color: #fff4ce;
+    color: #8a6116;
+    border: 1px solid var(--warning-color);
+}
+
+details {
+    cursor: pointer;
+}
+
+details summary {
+    font-weight: 600;
+    padding: 12px;
+    background-color: var(--bg-color);
+    border-radius: 4px;
+    user-select: none;
+}
+
+details[open] summary {
+    margin-bottom: 16px;
+}
+
+/* Mobile optimizations */
+@media (max-width: 480px) {
+    .container {
+        padding: 12px;
+    }
+
+    header h1 {
+        font-size: 1.5rem;
+    }
+
+    .section {
+        padding: 16px;
+    }
+
+    .btn {
+        padding: 14px 20px;
+    }
+}
+
+/* Prevent zoom on input focus on iOS */
+@media screen and (max-width: 767px) {
+    input[type="text"],
+    input[type="file"],
+    select {
+        font-size: 16px;
+    }
+}
+
+/* PWA install prompt */
+.install-prompt {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    right: 20px;
+    background-color: var(--primary-color);
+    color: white;
+    padding: 16px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+}
+
+.install-prompt button {
+    background-color: white;
+    color: var(--primary-color);
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    font-weight: 600;
+    cursor: pointer;
+}

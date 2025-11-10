@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="theme-color" content="#0078d4">
+    <meta name="description" content="Field Tech Photo Upload to SharePoint">
+    <title>Tech Photo Upload</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="manifest" href="manifest.json">
+    <link rel="apple-touch-icon" href="icon-192.png">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📸 Tech Photo Upload</h1>
+            <p class="subtitle">Upload photos to SharePoint</p>
+        </header>
+
+        <!-- Authentication Section -->
+        <section id="auth-section" class="section">
+            <h2>Sign In</h2>
+            <button id="signin-btn" class="btn btn-primary">Sign in with Microsoft</button>
+            <div id="user-info" class="hidden">
+                <p>Welcome, <span id="user-name"></span></p>
+                <button id="signout-btn" class="btn btn-secondary">Sign Out</button>
+            </div>
+        </section>
+
+        <!-- Main Upload Section -->
+        <section id="upload-section" class="section hidden">
+            <div class="form-group">
+                <label for="folder-select">Select Destination Folder:</label>
+                <select id="folder-select" class="form-control">
+                    <option value="">Loading folders...</option>
+                </select>
+                <button id="refresh-folders-btn" class="btn btn-icon" title="Refresh folders">🔄</button>
+            </div>
+
+            <div class="form-group">
+                <label for="photo-input">Select or Capture Photo:</label>
+                <input type="file" id="photo-input" accept="image/*" capture="environment" multiple class="form-control">
+                <div id="photo-preview" class="photo-preview"></div>
+            </div>
+
+            <button id="upload-btn" class="btn btn-primary btn-large" disabled>
+                Upload Photos
+            </button>
+
+            <div id="progress-section" class="progress-section hidden">
+                <div class="progress-bar">
+                    <div id="progress-fill" class="progress-fill"></div>
+                </div>
+                <p id="progress-text">Uploading...</p>
+            </div>
+
+            <div id="status-message" class="status-message"></div>
+        </section>
+
+        <!-- Configuration Section -->
+        <section id="config-section" class="section">
+            <details>
+                <summary>SharePoint Configuration</summary>
+                <div class="form-group">
+                    <label for="site-url">SharePoint Site URL:</label>
+                    <input type="text" id="site-url" class="form-control" 
+                           placeholder="https://yourtenant.sharepoint.com/sites/yoursite">
+                </div>
+                <div class="form-group">
+                    <label for="library-name">Document Library Name:</label>
+                    <input type="text" id="library-name" class="form-control" 
+                           placeholder="Shared Documents" value="Shared Documents">
+                </div>
+                <button id="save-config-btn" class="btn btn-secondary">Save Configuration</button>
+            </details>
+        </section>
+    </div>
+
+    <!-- MSAL.js for authentication -->
+    <script src="https://alcdn.msauth.net/browser/2.38.1/js/msal-browser.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
